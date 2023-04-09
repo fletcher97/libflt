@@ -10,7 +10,7 @@ namespace flt
 #define FLT_TIME(name)
 #define FLT_TIME_RESET
 #define FLT_TIME_LOG
-#define FLT_TIME_GET
+#define FLT_TIME_GET ""
 
 #if defined(FLT_TIMER)
 
