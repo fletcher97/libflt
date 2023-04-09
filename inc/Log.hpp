@@ -43,32 +43,32 @@ namespace flt
 
 	#if (LOG_LVL <= FLT_LOG_TRACE_LVL)
 		#undef LOG_TRACE
-		#define LOG_TRACE(msg) {std::stringstream ss; ss<<msg; flt::Log::trace(ss);}
+		#define LOG_TRACE(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::trace(flt_log_ss);}
 	#endif // FLT_LOG_TRACE_LVL lvl
 
 	#if (LOG_LVL <= FLT_LOG_DEBUG_LVL)
 		#undef LOG_DEBUG
-		#define LOG_DEBUG(msg) {std::stringstream ss; ss<<msg; flt::Log::debug(ss);}
+		#define LOG_DEBUG(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::debug(flt_log_ss);}
 	#endif // FLT_LOG_DEBUG_LVL lvl
 
 	#if (LOG_LVL <= FLT_LOG_INFO_LVL)
 		#undef LOG_INFO
-		#define LOG_INFO(msg) {std::stringstream ss; ss<<msg; flt::Log::info(ss);}
+		#define LOG_INFO(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::info(flt_log_ss);}
 	#endif // FLT_LOG_INFO_LVL lvl
 
 	#if (LOG_LVL <= FLT_LOG_WARN_LVL)
 		#undef LOG_WARN
-		#define LOG_WARN(msg) {std::stringstream ss; ss<<msg; flt::Log::warn(ss);}
+		#define LOG_WARN(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::warn(flt_log_ss);}
 	#endif // FLT_LOG_WARN_LVL lvl
 
 	#if (LOG_LVL <= FLT_LOG_ERROR_LVL)
 		#undef LOG_ERROR
-		#define LOG_ERROR(msg) {std::stringstream ss; ss<<msg; flt::Log::error(ss);}
+		#define LOG_ERROR(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::error(flt_log_ss);}
 	#endif // FLT_LOG_ERROR_LVL lvl
 
 	#if (LOG_LVL <= FLT_LOG_FATAL_LVL)
 		#undef LOG_FATAL
-		#define LOG_FATAL(msg) {std::stringstream ss; ss<<msg; flt::Log::fatal(ss);}
+		#define LOG_FATAL(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::fatal(flt_log_ss);}
 	#endif // FLT_LOG_FATAL_LVL lvl
 
 #endif // LOG_LVL
