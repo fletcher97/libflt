@@ -385,7 +385,7 @@ SRCS_LIST = $(call merge,${SRCS_LIST_SIMPLE},${MAIN_FILES})
 TSTS_LIST_SIMPLE = $(foreach dl,${TST_DIRS_LIST},$(subst ${SPACE},:,$(strip\
 	$(foreach dir,$(subst :,${SPACE},${dl}),\
 	$(wildcard ${dir}*.${SRC_FILE_EXT})))))
-TSTS_LIST = $(call merge,$(call merge,${TSTS_LIST_SIMPLE},${TSTS_LIST_SIMPLE}),\
+TSTS_LIST = $(call merge,$(call merge,${SRCS_LIST_SIMPLE},${TSTS_LIST_SIMPLE}),\
 	${MAIN_FILES_TST})
 
 # Object files grouped by executable
