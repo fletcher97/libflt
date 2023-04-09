@@ -89,13 +89,6 @@ public:
 	static void fatal(const std::stringstream& msg);
 };
 
-#undef FLT_LOG_TRACE_LVL
-#undef FLT_LOG_DEBUG_LVL
-#undef FLT_LOG_INFO_LVL
-#undef FLT_LOG_WARN_LVL
-#undef FLT_LOG_ERROR_LVL
-#undef FLT_LOG_FATAL_LVL
-
 } // namespace flt
 
 #endif // LOG_HPP
