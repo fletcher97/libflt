@@ -30,4 +30,12 @@ flt::Testable<T>::report(std::ostream& out) const {
 	this->_batch.report(out, this->_name);
 }
 
+template<typename T>
+void
+flt::Testable<T>::init(void) {}
+
+template<typename T>
+void
+flt::Testable<T>::term(void) {}
+
 #endif // TESTABLE_IPP

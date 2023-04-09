@@ -9,6 +9,8 @@ namespace flt
 class ITestable
 {
 public:
+	virtual void init(void) = 0;
+	virtual void term(void) = 0;
 	virtual void run(void) = 0;
 	virtual void report(std::ostream& out) const = 0;
 };
