@@ -19,7 +19,9 @@ flt::TestCollection::addTest(flt::ITestable& t) {
 void
 flt::TestCollection::test(void) {
 	for (std::list<flt::ITestable*>::iterator it = this->_tests.begin(); it != this->_tests.end(); it++) {
+		(*it)->init();
 		(*it)->run();
+		(*it)->term();
 		this->_count++;
 	}
 }
