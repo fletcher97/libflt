@@ -75,6 +75,7 @@ class Log
 {
 private:
 	static std::ofstream *fout;
+	static std::string path;
 
 public:
 	static void openFile(const std::string &path);

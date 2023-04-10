@@ -3,6 +3,7 @@
 #include "Log.hpp"
 
 std::ofstream*flt::Log::fout = NULL;
+std::string flt::Log::path = "";
 
 void
 flt::Log::openFile(const std::string &path)
@@ -24,7 +25,8 @@ flt::Log::openFile(const std::string &path)
 	}
 
 	flt::Log::fout = new_fout;
-	LOG_INFO("Opened file \"" << path << "\" for logging.")
+	flt::Log::path = path;
+	LOG_INFO("Opened file \"" << flt::Log::path << "\" for logging.")
 }	// Log::openFile
 
 
@@ -32,6 +34,7 @@ void
 flt::Log::closeFile(void)
 {
 	if (flt::Log::fout) {
+		LOG_INFO("Closing file \"" << flt::Log::path << "\" for logging.")
 		flt::Log::fout->close();
 		delete flt::Log::fout;
 		flt::Log::fout = NULL;
