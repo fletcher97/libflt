@@ -2,6 +2,10 @@
 
 #include "TestResults.hpp"
 
+flt::TestResults::TestResults(void) :
+	_good(0)
+{}
+
 void
 flt::TestResults::error(flt::AssertError &e)
 {

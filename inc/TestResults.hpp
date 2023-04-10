@@ -18,8 +18,7 @@ public:
 	unsigned long _good;
 
 public:
-	TestResults(void) :
-		_good(0) {}
+	TestResults(void);
 
 	void error(flt::AssertError &e);
 	void report(std::ostream &out, const std::string &name) const;

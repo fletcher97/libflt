@@ -23,7 +23,7 @@ protected:
 
 public:
 	Testable(const std::string name);
-	virtual ~Testable(void) {}
+	virtual ~Testable(void);
 
 	virtual void run(void);
 	virtual void init(void);
