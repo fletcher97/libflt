@@ -506,14 +506,18 @@ lcov: debug_cov
 	${AT}lcov -c -b . -d . -o report.info --no-external --rc lcov_branch_coverage=1 --filter branch,function${BLOCK}
 	${AT}mkdir -p html ${BLOCK}
 	${AT}genhtml report.info -o html --rc genhtml_branch_coverage=1 --demangle-cpp --legend --filter branch,function --dark-mode${BLOCK}
-#TODO: ~/Apps/lcov/bin/
+
 obj/asan/asan.o: src/asan/asan.c
 	${AT}mkdir -p ${@D} ${BLOCK}
 	${AT}${CC} -o $@ -c $< ${BLOCK}
 
 debug_asan: CFLAGS += ${DFLAGS} ${ASAN}
 debug_asan: ASAN_FILE = obj/asan/asan.o
-debug_asan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) obj/asan/asan.o all
+debug_asan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) ${ASAN_FILE} all
+
+debug_asan_tests: CFLAGS += ${DFLAGS} ${ASAN}
+debug_asan_tests: ASAN_FILE = obj/asan/asan.o
+debug_asan_tests: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) ${ASAN_FILE} tests
 
 debug_tsan: CFLAGS += ${DFLAGS} ${TSAN}
 debug_tsan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) all
