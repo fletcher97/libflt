@@ -1,9 +1,9 @@
 #if !defined(LOG_HPP)
 #define LOG_HPP
 
-#include <string>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 namespace flt
 {
@@ -34,61 +34,64 @@ namespace flt
 #define LOG_FATAL(msg)
 
 #if defined(LOG_LVL)
+# undef LOG_OPEN_FILE
+# define LOG_OPEN_FILE(path) flt::Log::openFile(path);
 
-	#undef LOG_OPEN_FILE
-	#define LOG_OPEN_FILE(path) flt::Log::openFile(path);
+# undef LOG_CLOSE_FILE
+# define LOG_CLOSE_FILE flt::Log::closeFile();
 
-	#undef LOG_CLOSE_FILE
-	#define LOG_CLOSE_FILE flt::Log::closeFile();
+# if (LOG_LVL <= FLT_LOG_TRACE_LVL)
+#  undef LOG_TRACE
+#  define LOG_TRACE(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::trace(flt_log_ss);}
+# endif // if (LOG_LVL <= FLT_LOG_TRACE_LVL)
 
-	#if (LOG_LVL <= FLT_LOG_TRACE_LVL)
-		#undef LOG_TRACE
-		#define LOG_TRACE(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::trace(flt_log_ss);}
-	#endif // FLT_LOG_TRACE_LVL lvl
+# if (LOG_LVL <= FLT_LOG_DEBUG_LVL)
+#  undef LOG_DEBUG
+#  define LOG_DEBUG(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::debug(flt_log_ss);}
+# endif // if (LOG_LVL <= FLT_LOG_DEBUG_LVL)
 
-	#if (LOG_LVL <= FLT_LOG_DEBUG_LVL)
-		#undef LOG_DEBUG
-		#define LOG_DEBUG(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::debug(flt_log_ss);}
-	#endif // FLT_LOG_DEBUG_LVL lvl
+# if (LOG_LVL <= FLT_LOG_INFO_LVL)
+#  undef LOG_INFO
+#  define LOG_INFO(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::info(flt_log_ss);}
+# endif // if (LOG_LVL <= FLT_LOG_INFO_LVL)
 
-	#if (LOG_LVL <= FLT_LOG_INFO_LVL)
-		#undef LOG_INFO
-		#define LOG_INFO(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::info(flt_log_ss);}
-	#endif // FLT_LOG_INFO_LVL lvl
+# if (LOG_LVL <= FLT_LOG_WARN_LVL)
+#  undef LOG_WARN
+#  define LOG_WARN(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::warn(flt_log_ss);}
+# endif // if (LOG_LVL <= FLT_LOG_WARN_LVL)
 
-	#if (LOG_LVL <= FLT_LOG_WARN_LVL)
-		#undef LOG_WARN
-		#define LOG_WARN(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::warn(flt_log_ss);}
-	#endif // FLT_LOG_WARN_LVL lvl
+# if (LOG_LVL <= FLT_LOG_ERROR_LVL)
+#  undef LOG_ERROR
+#  define LOG_ERROR(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::error(flt_log_ss);}
+# endif // if (LOG_LVL <= FLT_LOG_ERROR_LVL)
 
-	#if (LOG_LVL <= FLT_LOG_ERROR_LVL)
-		#undef LOG_ERROR
-		#define LOG_ERROR(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::error(flt_log_ss);}
-	#endif // FLT_LOG_ERROR_LVL lvl
-
-	#if (LOG_LVL <= FLT_LOG_FATAL_LVL)
-		#undef LOG_FATAL
-		#define LOG_FATAL(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::fatal(flt_log_ss);}
-	#endif // FLT_LOG_FATAL_LVL lvl
-
-#endif // LOG_LVL
+# if (LOG_LVL <= FLT_LOG_FATAL_LVL)
+#  undef LOG_FATAL
+#  define LOG_FATAL(msg) {std::stringstream flt_log_ss; flt_log_ss<<msg; flt::Log::fatal(flt_log_ss);}
+# endif // if (LOG_LVL <= FLT_LOG_FATAL_LVL)
+#endif // if defined(LOG_LVL)
 
 class Log
 {
 private:
-	static std::ofstream* fout;
+	static std::ofstream *fout;
+
 public:
-	static void openFile(const std::string& path);
+	static void openFile(const std::string &path);
 	static void closeFile(void);
 
-	static void trace(const std::stringstream& msg);
-	static void debug(const std::stringstream& msg);
-	static void info(const std::stringstream& msg);
-	static void warn(const std::stringstream& msg);
-	static void error(const std::stringstream& msg);
-	static void fatal(const std::stringstream& msg);
-};
+	static void trace(const std::stringstream &msg);
+	static void debug(const std::stringstream &msg);
+	static void info(const std::stringstream &msg);
+	static void warn(const std::stringstream &msg);
+	static void error(const std::stringstream &msg);
+	static void fatal(const std::stringstream &msg);
+};	// class Log
 
-} // namespace flt
+// class Log
+
+// class Log
+
+}	// namespace flt
 
 #endif // LOG_HPP
