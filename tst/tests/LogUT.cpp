@@ -498,11 +498,9 @@ LogUT::test_file_open(void)
 {
 	std::string file_path;
 	std::ifstream file_in;
-	std::ofstream file_tmp;
 
 	std::string msg;
 	std::string result;
-	std::string result_file;
 	std::string expected;
 
 	LOG_CLOSE_FILE;
@@ -520,10 +518,10 @@ LogUT::test_file_open(void)
 	expected = FLT_LOG_INFO_COLOR_FG "[INFO]" FLT_LOG_RESET_COLOR ": " + msg + "\n";	// clog check
 	ASSERT_EQ(result, expected)															// clog check
 
-	result_file = std::string(std::istreambuf_iterator< char >(file_in),	// file check
-		std::istreambuf_iterator< char >());								// file check
-	expected = "[INFO]: " + msg + "\n";										// file check
-	ASSERT_EQ(result_file, expected)										// file check
+	result = std::string(std::istreambuf_iterator< char >(file_in),	// file check
+		std::istreambuf_iterator< char >());						// file check
+	expected = "[INFO]: " + msg + "\n";								// file check
+	ASSERT_EQ(result, expected)										// file check
 
 	LOG_CLOSE_FILE;
 }	// LogUT::test_file_open
