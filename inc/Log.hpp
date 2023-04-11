@@ -74,8 +74,8 @@ namespace flt
 class Log
 {
 private:
-	static std::ofstream *fout;
-	static std::string path;
+	static std::ofstream *_fout;
+	static std::string _path;
 
 public:
 	static void openFile(const std::string &path);
