@@ -503,7 +503,7 @@ cov: debug_cov
 	${AT}mv *.gcov ${COV_ROOT} ${BLOCK}
 
 lcov: debug_cov
-	${AT}lcov -c -b . -d . -o report.info --no-external --rc lcov_branch_coverage=1 --filter branch,function${BLOCK}
+	${AT}lcov -c -b . -d . -o report.info --no-external --rc lcov_branch_coverage=1 --filter branch,function --ignore-errors mismatch${BLOCK}
 	${AT}mkdir -p html ${BLOCK}
 	${AT}genhtml report.info -o html --rc genhtml_branch_coverage=1 --demangle-cpp --legend --filter branch,function --dark-mode${BLOCK}
 
