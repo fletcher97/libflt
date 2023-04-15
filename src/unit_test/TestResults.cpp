@@ -37,11 +37,11 @@ unsigned long
 flt::TestResults::get_failed_count() const
 {
 	return this->_errors.size();
-} // TestResults::get_failed_count
+}	// TestResults::get_failed_count
 
 
 unsigned long
 flt::TestResults::get_passed_count() const
 {
 	return this->_good;
-} // TestResults::get_passed_count
+}	// TestResults::get_passed_count

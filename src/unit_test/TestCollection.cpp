@@ -57,4 +57,4 @@ unsigned long
 flt::TestCollection::get_passed_count() const
 {
 	return this->_passed;
-} // TestCollection::get_passed_count
+}	// TestCollection::get_passed_count
