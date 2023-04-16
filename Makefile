@@ -250,13 +250,13 @@ TST_ROOT := tst/
 
 ifeq (${CREATE_LIB_TARGETS},1)
 
-# Libft
-LIBFT_ROOT := ${LIB_ROOT}libft/
-LIBFT_INC := ${LIBFT_ROOT}inc/
-LIBFT := ${LIBFT_ROOT}bin/libft.a
+# Libflt
+LIBFLT_ROOT := ${LIB_ROOT}libflt/
+LIBFLT_INC := ${LIBFLT_ROOT}inc/ ${LIBFLT_ROOT}inc/tpl/ ${LIBFLT_ROOT}inc/imp/
+LIBFLT := ${LIBFT_ROOT}bin/libflt.a
 
-INC_DIRS += ${LIBFT_INC}
-LIBS += -L${LIBFT_ROOT}bin -lft
+INC_DIRS += ${LIBFLT_INC}
+LIBS += -L${LIBFLT_ROOT}bin -lflt
 
 # Libraries for which to create default targets. All libraries in this list will
 # have targets created autimatically. The targets that are created are set in
