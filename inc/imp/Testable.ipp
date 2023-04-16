@@ -15,7 +15,7 @@ flt::Testable< T >::Testable(const std::string name) :
 
 
 template< typename T >
-flt::Testable< T >::~Testable(void)
+flt::Testable< T >::Testable::~Testable(void)
 {}
 
 template< typename T >
