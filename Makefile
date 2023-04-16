@@ -584,6 +584,10 @@ compile-test: CFLAGS += -DFLT_TIMER
 compile-test: ${addprefix compile-test/,${NAMES}}
 compile-test: ${addprefix compile-test/${TST_PREFIX},${NAMES}}
 
+uncrustify-check:
+	${AT}find . -name "*.[chit]pp" > uncrustify-targets.txt ${BLOCK}
+	${AT}uncrustify -c uncrustify.cfg --check -F uncrustify-targets.txt -l CPP -q${BLOCK}
+
 ################################################################################
 # .PHONY
 ################################################################################
