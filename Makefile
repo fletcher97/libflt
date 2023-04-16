@@ -499,7 +499,7 @@ debug_cov: tests
 
 cov:
 	${AT}mkdir -p ${COV_ROOT} ${BLOCK}
-	${AT}gcov -arHs src obj/**/*.gc* ${BLOCK}
+	${AT}gcov -arHs $$(find obj -name "*.gc*") ${BLOCK}
 	${AT}mv *.gcov ${COV_ROOT} ${BLOCK}
 
 lcov:
