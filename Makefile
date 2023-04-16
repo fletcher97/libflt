@@ -497,12 +497,12 @@ debug: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) all
 debug_cov: CFLAGS += ${COVFLAGS} -O0
 debug_cov: tests
 
-cov: debug_cov
+cov:
 	${AT}mkdir -p ${COV_ROOT} ${BLOCK}
 	${AT}gcov -arHs src obj/**/*.gc* ${BLOCK}
 	${AT}mv *.gcov ${COV_ROOT} ${BLOCK}
 
-lcov: debug_cov
+lcov:
 	${AT}lcov -c -b . -d . -o report.info --no-external --rc lcov_branch_coverage=1 --filter branch,function --ignore-errors mismatch${BLOCK}
 	${AT}mkdir -p html ${BLOCK}
 	${AT}genhtml report.info -o html --rc genhtml_branch_coverage=1 --demangle-cpp --legend --filter branch,function --dark-mode${BLOCK}
@@ -528,8 +528,6 @@ debug_msan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) all
 debug_re: fclean debug
 
 debug_cov_re: fclean debug_cov
-
-debug_cov_tests_re: fclean debug_cov_tests
 
 debug_asan_re: fclean debug_asan
 
