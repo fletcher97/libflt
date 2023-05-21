@@ -60,7 +60,7 @@ LogUT::test_print_trace_macro(void)
 	msg = "trace msg";
 	LOG_TRACE(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_TRACE_COLOR_FG "[TRACE]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_TRACE_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -68,7 +68,7 @@ LogUT::test_print_trace_macro(void)
 	msg = "";
 	LOG_TRACE(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_TRACE_COLOR_FG "[TRACE]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_TRACE_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -76,7 +76,7 @@ LogUT::test_print_trace_macro(void)
 	msg = "";
 	LOG_TRACE("")
 	result = this->newbuf->str();
-	expected = FLT_LOG_TRACE_COLOR_FG "[TRACE]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_TRACE_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 }	// LogUT::test_print_trace_macro
 
@@ -134,7 +134,7 @@ LogUT::test_print_debug_macro(void)
 	msg = "debug msg";
 	LOG_DEBUG(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_DEBUG_COLOR_FG "[DEBUG]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_DEBUG_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -142,7 +142,7 @@ LogUT::test_print_debug_macro(void)
 	msg = "";
 	LOG_DEBUG(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_DEBUG_COLOR_FG "[DEBUG]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_DEBUG_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -150,7 +150,7 @@ LogUT::test_print_debug_macro(void)
 	msg = "";
 	LOG_DEBUG("")
 	result = this->newbuf->str();
-	expected = FLT_LOG_DEBUG_COLOR_FG "[DEBUG]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_DEBUG_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 }	// LogUT::test_print_debug_macro
 
@@ -208,7 +208,7 @@ LogUT::test_print_info_macro(void)
 	msg = "info msg";
 	LOG_INFO(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_INFO_COLOR_FG "[INFO]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_INFO_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -216,7 +216,7 @@ LogUT::test_print_info_macro(void)
 	msg = "";
 	LOG_INFO(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_INFO_COLOR_FG "[INFO]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_INFO_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -224,7 +224,7 @@ LogUT::test_print_info_macro(void)
 	msg = "";
 	LOG_INFO("")
 	result = this->newbuf->str();
-	expected = FLT_LOG_INFO_COLOR_FG "[INFO]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_INFO_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 }	// LogUT::test_print_info_macro
 
@@ -282,7 +282,7 @@ LogUT::test_print_warn_macro(void)
 	msg = "warn msg";
 	LOG_WARN(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_WARN_COLOR_FG "[WARN]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_WARN_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -290,7 +290,7 @@ LogUT::test_print_warn_macro(void)
 	msg = "";
 	LOG_WARN(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_WARN_COLOR_FG "[WARN]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_WARN_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -298,7 +298,7 @@ LogUT::test_print_warn_macro(void)
 	msg = "";
 	LOG_WARN("")
 	result = this->newbuf->str();
-	expected = FLT_LOG_WARN_COLOR_FG "[WARN]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_WARN_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 }	// LogUT::test_print_warn_macro
 
@@ -356,7 +356,7 @@ LogUT::test_print_error_macro(void)
 	msg = "error msg";
 	LOG_ERROR(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_ERROR_COLOR_FG "[ERROR]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_ERROR_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -364,7 +364,7 @@ LogUT::test_print_error_macro(void)
 	msg = "";
 	LOG_ERROR(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_ERROR_COLOR_FG "[ERROR]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_ERROR_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -372,7 +372,7 @@ LogUT::test_print_error_macro(void)
 	msg = "";
 	LOG_ERROR("")
 	result = this->newbuf->str();
-	expected = FLT_LOG_ERROR_COLOR_FG "[ERROR]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_ERROR_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 }	// LogUT::test_print_error_macro
 
@@ -430,7 +430,7 @@ LogUT::test_print_fatal_macro(void)
 	msg = "fatal msg";
 	LOG_FATAL(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_FATAL_COLOR_FG "[FATAL]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_FATAL_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -438,7 +438,7 @@ LogUT::test_print_fatal_macro(void)
 	msg = "";
 	LOG_FATAL(msg)
 	result = this->newbuf->str();
-	expected = FLT_LOG_FATAL_COLOR_FG "[FATAL]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_FATAL_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 
 
@@ -446,7 +446,7 @@ LogUT::test_print_fatal_macro(void)
 	msg = "";
 	LOG_FATAL("")
 	result = this->newbuf->str();
-	expected = FLT_LOG_FATAL_COLOR_FG "[FATAL]" FLT_LOG_RESET_COLOR ": " + msg + "\n";
+	expected = FLT_LOG_FATAL_MSG(msg) + "\n";
 	ASSERT_EQ(result, expected)
 }	// LogUT::test_print_fatal_macro
 
@@ -514,9 +514,9 @@ LogUT::test_file_open(void)
 
 	LOG_OPEN_FILE(file_path);	// test
 
-	result = this->newbuf->str();														// clog check
-	expected = FLT_LOG_INFO_COLOR_FG "[INFO]" FLT_LOG_RESET_COLOR ": " + msg + "\n";	// clog check
-	ASSERT_EQ(result, expected)															// clog check
+	result = this->newbuf->str();				// clog check
+	expected = FLT_LOG_INFO_MSG(msg) + "\n";	// clog check
+	ASSERT_EQ(result, expected)					// clog check
 
 	result = std::string(std::istreambuf_iterator< char >(file_in),	// file check
 		std::istreambuf_iterator< char >());						// file check

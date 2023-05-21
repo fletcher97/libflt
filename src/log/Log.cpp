@@ -45,7 +45,7 @@ flt::Log::closeFile(void)
 void
 flt::Log::trace(const std::stringstream &msg)
 {
-	std::clog << FLT_LOG_TRACE_COLOR_FG << "[TRACE]" << FLT_LOG_RESET_COLOR << ": " << msg.str() << std::endl;
+	std::clog << FLT_LOG_TRACE_MSG(msg.str()) << std::endl;
 	if (flt::Log::_fout) {
 		*flt::Log::_fout << "[TRACE]: " << msg.str() << std::endl;
 		flt::Log::_fout->flush();
@@ -56,7 +56,7 @@ flt::Log::trace(const std::stringstream &msg)
 void
 flt::Log::debug(const std::stringstream &msg)
 {
-	std::clog << FLT_LOG_DEBUG_COLOR_FG << "[DEBUG]" << FLT_LOG_RESET_COLOR << ": " << msg.str() << std::endl;
+	std::clog << FLT_LOG_DEBUG_MSG(msg.str()) << std::endl;
 	if (flt::Log::_fout) {
 		*flt::Log::_fout << "[DEBUG]: " << msg.str() << std::endl;
 		flt::Log::_fout->flush();
@@ -67,7 +67,7 @@ flt::Log::debug(const std::stringstream &msg)
 void
 flt::Log::info(const std::stringstream &msg)
 {
-	std::clog << FLT_LOG_INFO_COLOR_FG << "[INFO]" << FLT_LOG_RESET_COLOR << ": " << msg.str() << std::endl;
+	std::clog << FLT_LOG_INFO_MSG(msg.str()) << std::endl;
 	if (flt::Log::_fout) {
 		*flt::Log::_fout << "[INFO]: " << msg.str() << std::endl;
 		flt::Log::_fout->flush();
@@ -78,7 +78,7 @@ flt::Log::info(const std::stringstream &msg)
 void
 flt::Log::warn(const std::stringstream &msg)
 {
-	std::clog << FLT_LOG_WARN_COLOR_FG << "[WARN]" << FLT_LOG_RESET_COLOR << ": " << msg.str() << std::endl;
+	std::clog << FLT_LOG_WARN_MSG(msg.str()) << std::endl;
 	if (flt::Log::_fout) {
 		*flt::Log::_fout << "[WARN]: " << msg.str() << std::endl;
 		flt::Log::_fout->flush();
@@ -89,7 +89,7 @@ flt::Log::warn(const std::stringstream &msg)
 void
 flt::Log::error(const std::stringstream &msg)
 {
-	std::clog << FLT_LOG_ERROR_COLOR_FG << "[ERROR]" << FLT_LOG_RESET_COLOR << ": " << msg.str() << std::endl;
+	std::clog << FLT_LOG_ERROR_MSG(msg.str()) << std::endl;
 	if (flt::Log::_fout) {
 		*flt::Log::_fout << "[ERROR]: " << msg.str() << std::endl;
 		flt::Log::_fout->flush();
@@ -100,7 +100,7 @@ flt::Log::error(const std::stringstream &msg)
 void
 flt::Log::fatal(const std::stringstream &msg)
 {
-	std::clog << FLT_LOG_FATAL_COLOR_FG << "[FATAL]" << FLT_LOG_RESET_COLOR << ": " << msg.str() << std::endl;
+	std::clog << FLT_LOG_FATAL_MSG(msg.str()) << std::endl;
 	if (flt::Log::_fout) {
 		*flt::Log::_fout << "[FATAL]: " << msg.str() << std::endl;
 		flt::Log::_fout->flush();
