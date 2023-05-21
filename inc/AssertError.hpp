@@ -8,12 +8,24 @@
 		throw flt::AssertError(__LINE__, __FILE__, __func__, "Assert failed: "#X);\
 	}}
 
+#define ASSERT_NOT(X) {if (X) {\
+		throw flt::AssertError(__LINE__, __FILE__, __func__, "NoAssert failed: "#X);\
+	}}
+
 #define ASSERT_EQ(X, E) {if (!(X == E)) {\
 		throw flt::AssertError(__LINE__, __FILE__, __func__, "Equality check failed: "#X" differs from "#E);\
 	}}
 
 #define ASSERT_NEQ(X, E) {if (!(X != E)) {\
 		throw flt::AssertError(__LINE__, __FILE__, __func__, "Inequality check failed: "#X" is the same as "#E);\
+	}}
+
+#define ASSERT_FEQ(X, E, EPSILON) {double diff = X - E; if (!(diff < EPSILON && -diff < EPSILON)) {\
+		throw flt::AssertError(__LINE__, __FILE__, __func__, "Float equality check failed: "#X" differs from "#E);\
+	}}
+
+#define ASSERT_FNEQ(X, E) {double diff = X - E; if ((diff < EPSILON && -diff < EPSILON)) {\
+		throw flt::AssertError(__LINE__, __FILE__, __func__, "Float inequality check failed: "#X" is the same as "#E);\
 	}}
 
 #define ASSERT_THROW(X, E) {try{\
